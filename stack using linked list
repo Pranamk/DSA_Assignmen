@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+public class Stack {
+	static Scanner sc=new Scanner(System.in);
+	static class Snode
+	{
+		 int data;
+		 Snode next;
+		 Snode(int data)
+		 {
+			 this.data=data;
+			 this.next=null;
+		 }
+	}
+	Snode top;
+   void create()
+   {   System.out.println("enter the data");
+	   int data=sc.nextInt();
+	   Snode node=new Snode(data);
+	   if(top==null)
+	   {
+		  top=node; 
+	   }
+	   else
+	   {   node.next=top;
+		   top=node;
+		   
+	   }
+   }
+   void delete()
+   {  
+	   if(top==null)
+	   {
+		   System.out.println("stack underflow");
+	   }
+	   else
+	   {
+		   Snode temp=top;
+		   top=temp.next;
+		   
+	   }
+   }
+   void traversal()
+   {
+	   Snode temp=top;
+	   while(temp!=null)
+	   {
+		   System.out.print(temp.data+ " ");
+		   temp=temp.next;
+	   }
+   }
+	public static void main(String[] args)
+	{
+		Stack s=new Stack();
+		 int m;
+		do
+		 {   System.out.println("enter value ,press 1 to insert,press 2 to delete,press 3 to traversal");
+		    int n=sc.nextInt();
+			 switch(n)
+			 { 
+			 case 1:
+				 s.create();
+				 break;
+			 case 2:
+				 s.delete();
+				 break;
+			 case 3:
+				 s.traversal();
+				 break;
+			 default :
+				 System.out.println("exist sucessfully");
+				 break;
+			 
+			 }
+			 System.out.println("enter  press 1 to continue ");
+			     m=sc.nextInt();
+		 }while(m==1);
+		
+
+	}
+
+}
